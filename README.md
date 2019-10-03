@@ -2,7 +2,7 @@
 
 ---
 
-Github service provides basic functions to gather information about a particular repo. It allows for teams to have a better understanding of what type of branch protection is implemented on a particular repo, commit frequency, pull request, and information regarding commit tagging. 
+Github service provides basic functions to retrieve information about a particular repo. It allows for teams to have a better understanding of what type of branch protection is implemented on a particular repo, commit frequency, pull request, and information regarding commit tagging. 
 
 **Getting Started**
 
