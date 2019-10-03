@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'irb'
+require_relative '../lib/github_service.rb'
+
+IRB.start
+
+
