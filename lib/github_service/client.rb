@@ -75,7 +75,7 @@ module GithubService
 
     def language_average(h)
       sum = h.inject(0) { |sum, lang| sum += lang[1] }
-     p  h.each_with_object({}) { |(k, v), hash| hash[k] = "#{(v * 100.0 / sum).round(2)}%" }
+      h.each_with_object({}) { |(k, v), hash| hash[k] = "#{(v * 100.0 / sum).round(2)}%" }
 
     end
 
