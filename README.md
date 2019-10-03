@@ -28,7 +28,7 @@ To check if authentication was successful you can call `client.authenticated?` a
 
 Returns a list of branches associated to the authenticated token. 
 
-`client.branch_protection`
+`client.branch_protection(organization:, repo:, branch:)`
 
 Provides a list of details regarding brach_protectoin status for a particular repository. Below is an example of the data provided. If branch protection is disabled, the service will return a value of `nil`.
 
