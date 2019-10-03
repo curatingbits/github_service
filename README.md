@@ -12,11 +12,11 @@ Github service uses [Octokit](https://github.com/octokit/octokit.rb) to integrat
 - Click on developer settings then personal access tokens to create a new token
 - Generate a new personal access token by clicking `generate new token` button, supply a note for the access token such as Github Service, under select scopes choose the `repo` checkbox so the service has access to the necessary API endpoints to gather information about private repos within an organization.
 - Click the generate token and then copy your token. **This will be the only oppertunity to view the token so note it down**
-- Github service uses environment variable to access your token. Edit your .bash_profile under your home directory and add the following. `export GITHUB_ACCESS_TOKEN='insert token here'`
+- Github service uses environment variable to access your token. In your terminal use the following command to set the env variable. `export GITHUB_ACCESS_TOKEN='insert token here'`
 
 **Using the service**
 
-Creating a new connection to Githubs API is as easy as creating a new class. 
+Creating a new connection to Githubs API is demonstrated below. 
 
 `client = Client.new`
 
@@ -39,7 +39,7 @@ Provides a list of details regarding brach_protectoin status for a particular re
 
 Receive a list of all commits from a branch. See response example below.
 
-[
+`[
   {
     "url": "https://api.github.com/repos/octocat/Hello-World/commits/6dcb09b5b57875f334f61aebed695e2e4193db5e",
     "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
@@ -118,7 +118,7 @@ Receive a list of all commits from a branch. See response example below.
       }
     ]
   }
-]
+]`
 
 `client.commits_frequency(organization:, repo:, branch:)`
 
@@ -135,7 +135,7 @@ Returns a hash of commits between a date range and provides the frequency of com
 
 The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.
 
-[
+`[
   {
     "url": "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
     "avatar_url": "https://github.com/images/error/hubot_happy.gif",
@@ -697,20 +697,20 @@ List pull requests for a repository.
     "author_association": "OWNER",
     "draft": false
   }
-]
+]`
 
 
 `client.list_languages(organization:, repo:)`
 
 Lists the languages used in a repository and provides a hash with each langague with the percentage used in bytes.
 
-{:Ruby=>"94.5%", :HTML=>"3.56%", :JavaScript=>"1.33%", :CSS=>"0.38%", :CoffeeScript=>"0.18%", :Shell=>"0.03%", :Yacc=>"0.01%"}
+`{:Ruby=>"94.5%", :HTML=>"3.56%", :JavaScript=>"1.33%", :CSS=>"0.38%", :CoffeeScript=>"0.18%", :Shell=>"0.03%", :Yacc=>"0.01%"}`
 
 `status_check(organization:, repo:, ref:)`
 
 Provides a combined status for a specific ref. Helps indicate if a build was succesful or failed if CI is available on a repository. 
 
-{
+`{
   "state": "success",
   "statuses": [
     {
@@ -810,10 +810,4 @@ Provides a combined status for a specific ref. Helps indicate if a build was suc
   },
   "commit_url": "https://api.github.com/repos/octocat/Hello-World/6dcb09b5b57875f334f61aebed695e2e4193db5e",
   "url": "https://api.github.com/repos/octocat/Hello-World/6dcb09b5b57875f334f61aebed695e2e4193db5e/status"
-}
-
-
-
-
-
-
+}`
