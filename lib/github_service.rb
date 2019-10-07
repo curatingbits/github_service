@@ -8,14 +8,11 @@ module GithubService
 
   @client.authenticated?
 
-
-
-
   @client.list_languages(organization: "rails", repo: "rails")
 
-  @client.status_check(organization: "curatingbits", repo: "curatingbits", ref: "1674075fee4f26acae0dbb634370a855333f40ae")
+  @client.status_check(organization: "jekyll", repo: "jekyll", sha: "master")
 
-
+  @client.commits_status(organization: "rails", repo: "rails", sha: "165753163c17b36f0ff45b43a80d8deb9e16f075")
 
 
 end

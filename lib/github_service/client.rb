@@ -1,4 +1,5 @@
 require_relative 'commit_frequency'
+require 'json'
 module GithubService
   class Client
     include CommitFrequency
@@ -56,8 +57,8 @@ module GithubService
       "Repo not found or invalid"
     end
 
-    def status_check(organization:, repo:, ref:)
-      @client.status("#{organization}/#{repo}", ref)
+    def status_check(organization:, repo:, sha:)
+      current_checks(@client.check_runs_for_ref("#{organization}/#{repo}", sha))
     rescue Octokit::NotFound, Octokit::InvalidRepository
       "Repo not found or invalid"
     end
@@ -72,10 +73,16 @@ module GithubService
     rescue Octokit::NotFound, Octokit::InvalidRepository
       "Repo not found or invalid"
     end
-
+    private
     def language_average(h)
       sum = h.inject(0) { |sum, lang| sum += lang[1] }
       h.each_with_object({}) { |(k, v), hash| hash[k] = "#{(v * 100.0 / sum).round(2)}%" }
+
+    end
+
+    def current_checks(hash)
+      _temp_arr = hash.check_runs.map { |check|  check[':name'] }
+      _temp_arr
 
     end
 
